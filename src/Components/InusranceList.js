@@ -1,5 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import { deleteinsuracne, inurancelist } from '../Service/ServiceList';
+import DeleteIcon from '@mui/icons-material/Delete';
+// import UpgradeIcon from '@mui/icons-material/Upgrade';
+import UpdateIcon from '@mui/icons-material/Update';
+import AddToQueueRoundedIcon from '@mui/icons-material/AddToQueueRounded';
 import { useState,useEffect } from "react";
 
 
@@ -64,16 +68,16 @@ export default function InsuranceList(){
                         <td>{insruace.coverpremiumvlaue}</td>
                         <td>{insruace.insurancecalculation}</td>
                         <td>
-                        <button className='btn btn-info' onClick={()=>updateinsrance(insruace.id)}>View & Update</button>
-                        <button className='btn btn-info' onClick={() => deleteInsurance(insruace.id)}>Delete</button>
+                        <UpdateIcon sx={{ color: "blue" }} onClick={()=>updateinsrance(insruace.id)}/>
+                        <DeleteIcon sx={{ color: "red" }}  onClick={() => deleteInsurance(insruace.id)}/>
                         </td>
                     </tr>
                 })}
             </tbody>
         </table>
-        <button onClick={()=> addnewinsurance()}>addnewinsurance</button>
+        
+        {/* <button onClick={()=> addnewinsurance()}>addnewinsurance</button> */}
+        <AddToQueueRoundedIcon  sx={{ fontSize: 50 ,color: "grey"}} onClick={()=> addnewinsurance()}/>
         </div>
-
     );
-
 }
