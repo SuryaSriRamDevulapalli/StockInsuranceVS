@@ -3,11 +3,6 @@
   cursor: pointer;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
 .center{
   margin: auto;
   width: 100%;
@@ -25,9 +20,8 @@ th {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  
+ 
 }
 
 .App-header {
@@ -41,9 +35,6 @@ th {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
 
 @keyframes App-logo-spin {
   from {
