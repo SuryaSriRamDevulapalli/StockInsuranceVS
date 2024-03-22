@@ -112,7 +112,7 @@ function Quote() {
     </Box>
     <br></br>
     <Fab variant="extended" size='medium' color="primary" onClick={handleback} sx={{mr:2}}> <KeyboardBackspaceIcon sx={{ mr: 1 }} /> Back </Fab>
-    <Fab variant="extended" size='medium' color="primary" onClick={handleClickOpen}> Complete  <NavigationIcon sx={{ ml: 1 }} /> </Fab>
+    <Fab variant="extended" size='medium' color="primary" onClick={handleClickOpen}> Complete  <NavigationIcon fontSize='small' sx={{ ml: 1 }} /> </Fab>
     <Dialog
         open={open}
         onClose={handleClose}
@@ -131,6 +131,7 @@ function Quote() {
             <p>Insurance ID: {insurance.id}</p>
             <p>Monthly Insuarnce: <CurrencyRupeeIcon sx={{fontSize:"small"}}/> {insurance.insurancecalculation} </p>
             <p>Type of Stock: {insurance.typeofstock} </p>
+            <p>Insurance Provider: {selectedPartner.companyName} </p>
           </DialogContentText>
         </DialogContent>
         <DialogActions>
