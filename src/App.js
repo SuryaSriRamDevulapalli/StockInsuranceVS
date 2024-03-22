@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Insurance from './Components/Insurance';
 import InsuranceList from './Components/InusranceList';
 import Quote from './Components/Quote';
+import FindInsurances from './Components/FindInsurances';
 
 
 function App() {
@@ -13,8 +14,9 @@ function App() {
      <Routes>
           <Route path="/" element={<InsuranceList />} />
           <Route path="/create" element={<Insurance />} />
-          <Route path="/edit/:id" element={<Insurance />} />     
-          <Route path="/quote/:id" element={<Quote />} />    
+          <Route path="/" element={<InsuranceList />} />
+        <Route path="/insurances" element={<FindInsurances />} />
+        <Route path="/quote" element={<Quote />} />
       </Routes>
       </BrowserRouter>
     </div>

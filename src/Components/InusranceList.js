@@ -3,9 +3,13 @@ import { deleteinsuracne, inurancelist } from '../Service/ServiceList';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import Fab from '@mui/material/Fab';
-import { Button } from '@mui/base/Button';
 import AddIcon from '@mui/icons-material/Add';
 import { useState,useEffect } from "react";
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
 
 import Table from '@mui/material/Table';
 import TableContainer from '@mui/material/TableContainer';
@@ -28,6 +32,10 @@ export default function InsuranceList(){
             setInsurances(response.data)
         })
     }
+    const handleGetQuote = (insurance) => {
+        navigation('/insurances', { state: { insurance } });
+      };
+      
 
     function addnewinsurance(){
         navigation('/create')
@@ -45,9 +53,19 @@ export default function InsuranceList(){
 
     return(
         <div>
-            <h1>Welcome to Stock Insurance</h1>
-            <TableContainer component={Paper}></TableContainer>
-        <Table  className='center'>
+                <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static">
+        <Toolbar>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          Welcome to Stock Insurance
+          </Typography>
+          <Button color="inherit">Logout</Button>
+          
+        </Toolbar>
+      </AppBar>
+    </Box>
+            <TableContainer component={Paper} sx={{mt:10}}></TableContainer>
+        <Table  className='center' sx={{boxShadow: '0px 0px 10px rgba(0,0,0,1.5)'}}>
         
             <thead>
                 <tr>
@@ -74,19 +92,18 @@ export default function InsuranceList(){
                         <td>{insruace.premiumcharges}</td>
                         <td>{insruace.coverpremiumcount}</td>
                         <td>{insruace.coverpremiumvlaue}</td>
-                        <td><Button variant="contained"  onClick={() => navigation(`/quote/${insruace.id}`)} > Get Quote</Button></td>
+                        <td><Button variant="contained" color="success" sx={{fontSize:"small"}} onClick={()=>handleGetQuote(insruace)} > Get Quote</Button></td>
                         <td>
                         <EditIcon sx={{ color: "blue",marginRight:2 }} onClick={()=>updateinsrance(insruace.id)}/>
-                        {/* <Fab sx={{ color: "blue" }} aria-label="add"onClick={() => updateinsrance(insruace.id)} ><EditIcon /></Fab> */}
                         <DeleteIcon sx={{ color: "red" }}  onClick={() => deleteInsurance(insruace.id)}/>
-                        {/* <Fab sx={{ color: "red" }} aria-label="add"onClick={() => deleteInsurance(insruace.id)} ><DeleteIcon /></Fab> */}
                         </td>
                     </tr>
                 })}
             </tbody>
         </Table>
-        
+        <br></br>
         <Fab color="primary" aria-label="add" onClick={()=> addnewinsurance()} ><AddIcon /></Fab>
         </div>
+
     );
 }
