@@ -1,10 +1,15 @@
 import { useNavigate } from 'react-router-dom';
 import { deleteinsuracne, inurancelist } from '../Service/ServiceList';
 import DeleteIcon from '@mui/icons-material/Delete';
-// import UpgradeIcon from '@mui/icons-material/Upgrade';
-import UpdateIcon from '@mui/icons-material/Update';
-import AddToQueueRoundedIcon from '@mui/icons-material/AddToQueueRounded';
+import EditIcon from '@mui/icons-material/Edit';
+import Fab from '@mui/material/Fab';
+import { Button } from '@mui/base/Button';
+import AddIcon from '@mui/icons-material/Add';
 import { useState,useEffect } from "react";
+
+import Table from '@mui/material/Table';
+import TableContainer from '@mui/material/TableContainer';
+import Paper from '@mui/material/Paper';
 
 
 
@@ -40,7 +45,10 @@ export default function InsuranceList(){
 
     return(
         <div>
-        <table className='center'>
+            <h1>Welcome to Stock Insurance</h1>
+            <TableContainer component={Paper}></TableContainer>
+        <Table  className='center'>
+        
             <thead>
                 <tr>
                     <th>Insuarnce ID: </th>
@@ -52,7 +60,7 @@ export default function InsuranceList(){
                     <th>Cover Premiums: </th>
                     <th>Cover Premium Values: </th>
                     <th>Monthly Premium: </th>
-                    <th>View & Delete: </th>
+                    <th>Update & Delete: </th>
                 </tr>
             </thead>
             <tbody>
@@ -66,18 +74,19 @@ export default function InsuranceList(){
                         <td>{insruace.premiumcharges}</td>
                         <td>{insruace.coverpremiumcount}</td>
                         <td>{insruace.coverpremiumvlaue}</td>
-                        <td>{insruace.insurancecalculation}</td>
+                        <td><Button variant="contained"  onClick={() => navigation(`/quote/${insruace.id}`)} > Get Quote</Button></td>
                         <td>
-                        <UpdateIcon sx={{ color: "blue" }} onClick={()=>updateinsrance(insruace.id)}/>
+                        <EditIcon sx={{ color: "blue",marginRight:2 }} onClick={()=>updateinsrance(insruace.id)}/>
+                        {/* <Fab sx={{ color: "blue" }} aria-label="add"onClick={() => updateinsrance(insruace.id)} ><EditIcon /></Fab> */}
                         <DeleteIcon sx={{ color: "red" }}  onClick={() => deleteInsurance(insruace.id)}/>
+                        {/* <Fab sx={{ color: "red" }} aria-label="add"onClick={() => deleteInsurance(insruace.id)} ><DeleteIcon /></Fab> */}
                         </td>
                     </tr>
                 })}
             </tbody>
-        </table>
+        </Table>
         
-        {/* <button onClick={()=> addnewinsurance()}>addnewinsurance</button> */}
-        <AddToQueueRoundedIcon  sx={{ fontSize: 50 ,color: "grey"}} onClick={()=> addnewinsurance()}/>
+        <Fab color="primary" aria-label="add" onClick={()=> addnewinsurance()} ><AddIcon /></Fab>
         </div>
     );
 }
