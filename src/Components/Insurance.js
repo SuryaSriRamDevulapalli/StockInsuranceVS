@@ -3,7 +3,7 @@ import { createinsurance, getinsurance, updateinsurance } from "../Service/Servi
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { useNavigate,useParams } from "react-router-dom";
-import { Checkbox,FormControlLabel, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
+import { Checkbox,FormControlLabel, FormControl, InputLabel, Select, MenuItem, Box } from '@mui/material';
 
 
 export default function Insuarnce(){
@@ -55,6 +55,10 @@ export default function Insuarnce(){
             premiumcharges: charges,
         }));
     };
+
+    const handleback = () => {
+        navigation('/');
+      };
 
     const updateDamagesCovered = (changedField, value) => {
         let damagesPercentage = 0;
@@ -132,15 +136,19 @@ export default function Insuarnce(){
 
     function Title(){
         if(id){
-            return(<h1 className="text-center">Update Insuarnce </h1>)
+            return(<h1 >Update Insuarnce </h1>)
         }else{
-            return(<h1 className="text-center">Create Insuarnce </h1>)
+            return(<h1>Create Insuarnce </h1>)
         }
         //or
        // return <h1 className="text-center">{id ? "Update Product" : "Create Product"}</h1>;
     }
 
+  
+
     return(
+            <Box sx={{alignItems: 'center',justifyContent: 'center',mt:20,border: '4px solid', borderColor: "white",borderRadius: '16px', p: 4, 
+            boxShadow: '0px 0px 10px rgba(0,0,0,1.5)',}}>
         <form onSubmit={createoreditproduct}>
             {Title()}
             <FormControl sx={{width: '15%'}}>
@@ -176,9 +184,10 @@ export default function Insuarnce(){
              </FormControl>
              {Checkboxes()}
             <br></br>
-            <Button variant="contained" color="success" size="large" sx={{marginTop:3}} onClick={createoreditproduct}> Submit </Button>
+            <Button variant="contained" size="large" sx={{mr:2}} onClick={handleback}>Back</Button>
+            <Button variant="contained" color="success" size="large"  onClick={createoreditproduct}> Submit </Button>
         </form>
-
+        </Box>      
         
     );
 
