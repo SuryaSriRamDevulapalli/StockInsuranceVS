@@ -29,7 +29,7 @@ export default function FindInsurances(){
         };
 
         const handleback = () => {
-            navigate('/');
+            navigate('/list');
           };
 
     return(
