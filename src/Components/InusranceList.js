@@ -42,7 +42,7 @@ export default function InsuranceList(){
         }
 
         function updateinsrance(id){
-            navigation(`/edit/${id}`)
+            navigation(`/edit/${id}`);
             }  
          
             function deleteInsurance(id) { 

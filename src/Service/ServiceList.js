@@ -1,13 +1,13 @@
 import axios from 'axios';
 
-const INSURANCE_URL = 'http://localhost:8080/api/vi/stock';
+const INSURANCE_URL = 'http://localhost:8080/api/vi';
 
 export const inurancelist = () => {
-    return axios.get(INSURANCE_URL);
+    return axios.get(`${INSURANCE_URL}/stock`);
 }
 
 export const createinsurance=(insruace)=>{
-    return axios.post(INSURANCE_URL,insruace)
+    return axios.post(`${INSURANCE_URL}/stock`,insruace)
 }
 
 export const getinsurance= (id) =>{

@@ -57,7 +57,7 @@ export default function Insuarnce(){
     };
 
     const handleback = () => {
-        navigation('/');
+        navigation('/list');
       };
 
     const updateDamagesCovered = (changedField, value) => {
