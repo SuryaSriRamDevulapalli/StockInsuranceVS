@@ -6,17 +6,26 @@ import InsuranceList from './Components/InusranceList';
 import Quote from './Components/Quote';
 import FindInsurances from './Components/FindInsurances';
 
+import HomePage from './HomePage/HomePage';
+import Login from './HomePage/Login';
+import Registration from './HomePage/Registration';
+
 
 function App() {
   return (
     <div className="App">
      <BrowserRouter>
      <Routes>
-          <Route path="/" element={<InsuranceList />} />
+          {/* <Route path="/" element={<InsuranceList />} /> */}
           <Route path="/create" element={<Insurance />} />
-          <Route path="/" element={<InsuranceList />} />
+          <Route path="/list" element={<InsuranceList />} />
+          <Route path="/edit/:id" element={<Insurance />} />
         <Route path="/insurances" element={<FindInsurances />} />
         <Route path="/quote" element={<Quote />} />
+
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Registration/>} />
       </Routes>
       </BrowserRouter>
     </div>
