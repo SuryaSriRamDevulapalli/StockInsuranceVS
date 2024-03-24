@@ -11,13 +11,13 @@ export const createinsurance=(insruace)=>{
 }
 
 export const getinsurance= (id) =>{
-    return axios.get(INSURANCE_URL+'/'+id)
+    return axios.get(`${INSURANCE_URL}/stock/${id}`)
 }
 
 export const updateinsurance= (id,insurance) =>{
-    return axios.put(INSURANCE_URL+'/'+id,insurance)
+    return axios.put(`${INSURANCE_URL}/stock/${id}`,insurance)
 }
 
 export const deleteinsuracne = (id) =>{
-    return axios.delete(INSURANCE_URL+'/'+id)
+    return axios.delete(`${INSURANCE_URL}/stock/${id}`)
 }

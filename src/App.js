@@ -9,6 +9,8 @@ import FindInsurances from './Components/FindInsurances';
 import HomePage from './HomePage/HomePage';
 import Login from './HomePage/Login';
 import Registration from './HomePage/Registration';
+import MainHomePage from './HomePage/MainHomePage';
+import Profile from './HomePage/Profile';
 
 
 function App() {
@@ -26,6 +28,8 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Registration/>} />
+          <Route path="/main" element={<MainHomePage />} />
+          <Route path="/profile" element={<Profile />} />
       </Routes>
       </BrowserRouter>
     </div>

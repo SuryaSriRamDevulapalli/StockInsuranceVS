@@ -25,7 +25,7 @@ function Quote() {
     const navigate = useNavigate();
 
   const handleback = () => {
-    navigate('/');
+    navigate('/list');
   };
 
   const handleClickOpen = () => {
