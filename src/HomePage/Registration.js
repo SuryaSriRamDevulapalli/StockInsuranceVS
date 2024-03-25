@@ -90,13 +90,13 @@ export default function Registration() {
     boxShadow: '0px 0px 10px rgba(0,0,0,1.5)', maxWidth: 400}}>
     <form onSubmit={handleSubmit}>
            <h3>Please provide your details:</h3>
-            <TextField sx={{mb:2}} id="firstname" label="First Name" variant="outlined" name="firstname" placeholder="Stock Value" onChange={handleChange}  value={userData.firstname} required />
+            <TextField sx={{mb:2}} id="firstname" label="First Name" variant="outlined" name="firstname" placeholder="Stock Value" onChange={handleChange}  value={userData.firstname} required/>
             <br></br>
             <TextField sx={{mb:2}} id="lastname" label="Last Name" variant="outlined" name="lastname" placeholder="Damages Covered" onChange={handleChange}  value={userData.lastname} required/>
             <br></br>
-            <TextField sx={{mb:2}} id="username" label="Username" variant="outlined" name="username" placeholder="Premium Charges" onChange={handleChange}  value={userData.username} required />
+            <TextField sx={{mb:2}} id="username" label="Username" variant="outlined" name="username" placeholder="Premium Charges" onChange={handleChange}  value={userData.username} required/>
             <br></br>
-            <TextField sx={{mb:2}} id="password" label="Password" variant="outlined" name="password" placeholder="Stock Value" onChange={handleChange}  value={userData.password} required />
+            <TextField sx={{mb:2}} id="password" label="Password" variant="outlined" name="password" placeholder="Stock Value" onChange={handleChange}  value={userData.password} required/>
             <br></br>
             <Button variant="contained" size="medium" sx={{mr:2}} onClick={handleback}>Back</Button>
             <Button type="submit" variant="contained">Submit</Button>
