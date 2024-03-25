@@ -5,6 +5,7 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import { Grid, Card, CardContent, CardMedia,CardActions, Rating } from '@mui/material';
 import { useLocation, useNavigate } from 'react-router-dom';
+import PolicyIcon from '@mui/icons-material/Policy';
 
 
 export default function FindInsurances(){
@@ -37,10 +38,11 @@ export default function FindInsurances(){
         <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
+        <PolicyIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Insuarnce Partners
           </Typography>
-          <Button color="inherit">Logout</Button>     
+          <Button color="inherit" onClick={handleback}>Logout</Button>     
         </Toolbar>
       </AppBar>
     </Box>

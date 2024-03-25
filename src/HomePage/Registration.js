@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { register } from './LoginService';
+import React, {  useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import {  getuser, register } from './LoginService';
 import { Box, Button, Container, TextField } from '@mui/material';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import AppBar from '@mui/material/AppBar';
+import PolicyIcon from '@mui/icons-material/Policy';
+
 
 export default function Registration() {
   const [userData, setUserData] = useState({
@@ -13,7 +15,6 @@ export default function Registration() {
     username: '',
     password: '',
   });
-  // const [usernameAvailable, setUsernameAvailable] = useState(true);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -21,25 +22,32 @@ export default function Registration() {
     setUserData({ ...userData, [name]: value });
   };
 
+  
+
   const handleback = () => {
     navigate('/login');
   };
 
-  // const handleback = (userData) => {
-  //   navigate('/login', { state: { userData } });
-  // };
+
+  const { id } = useParams();
+
+  useEffect(()=>{
+    if(id){
+        getuser(id).then((response)=>{
+            setUserData(response.data);
+        })
+    }
+},[id])
+
+
   
-
-
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // if (usernameAvailable) {
+
       try {
         await register(userData).then((response) => {
           console.log(response.data); 
-          localStorage.setItem('userData', JSON.stringify(response.data));
-          navigate('/login', { state: { userData: response.data } });
+            navigate(`/login`, { state: { userData: response.data } });
            alert(`Account created successfully for ${response.data.firstname} ${response.data.lastname} with username: ${response.data.username}. and ID: ${response.data.id}`);        
           
           })
@@ -47,9 +55,7 @@ export default function Registration() {
       } catch (error) {
         alert('Failed to register');
       }
-    // } else {
-    //   alert("Please choose a different username.");
-    // }
+
   };
 
   return (
@@ -57,8 +63,23 @@ export default function Registration() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          Stock Insurance
+        <PolicyIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+        <Typography
+            variant="h6"
+            noWrap
+            component="a"
+            href="#app-bar-with-responsive-menu"
+            sx={{
+              mr: 2,
+              display: { xs: 'none', md: 'flex' },
+              fontFamily: 'monospace',
+              fontWeight: 700,
+              letterSpacing: '.3rem',
+              color: 'inherit',
+              textDecoration: 'none',
+            }}
+          >
+            STOCK INSURANCE
           </Typography>
           
         </Toolbar>
@@ -74,7 +95,6 @@ export default function Registration() {
             <TextField sx={{mb:2}} id="lastname" label="Last Name" variant="outlined" name="lastname" placeholder="Damages Covered" onChange={handleChange}  value={userData.lastname} />
             <br></br>
             <TextField sx={{mb:2}} id="username" label="Username" variant="outlined" name="username" placeholder="Premium Charges" onChange={handleChange}  value={userData.username} />
-            {/* {!usernameAvailable && <div style={{color: 'red'}}>Username is not available</div>} */}
             <br></br>
             <TextField sx={{mb:2}} id="password" label="Password" variant="outlined" name="password" placeholder="Stock Value" onChange={handleChange}  value={userData.password} />
             <br></br>
