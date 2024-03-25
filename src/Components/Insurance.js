@@ -114,7 +114,7 @@ export default function Insuarnce(){
             updateinsurance(id, insruance)
             .then((response) => {
                 console.log(response.data);
-                navigation('/');
+                navigation('/list');
             })
             .catch(error => {
                 console.error('There was an error updating the insurance:', error);
@@ -124,7 +124,7 @@ export default function Insuarnce(){
             createinsurance(insruance)
         .then(response=>{
             console.log(response.data);
-            navigation('/')
+            navigation('/list')
             alert(`Insurance created with ID: ${response.data.id}`);
         })
         .catch(error => {

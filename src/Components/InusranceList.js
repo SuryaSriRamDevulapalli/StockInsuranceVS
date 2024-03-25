@@ -36,6 +36,10 @@ export default function InsuranceList(){
         navigation('/insurances', { state: { insurance } });
       };
       
+      const handleBack = ()=>{
+        navigation('/main')
+
+    };  
 
     function addnewinsurance(){
         navigation('/create')
@@ -57,9 +61,9 @@ export default function InsuranceList(){
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          Welcome to Stock Insurance
+          Insurances List
           </Typography>
-          <Button color="inherit">Logout</Button>
+          <Button color="inherit" onClick={handleBack}>Back</Button>
           
         </Toolbar>
       </AppBar>
