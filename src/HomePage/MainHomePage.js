@@ -12,9 +12,9 @@ import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import { PieChart, Pie, Cell } from 'recharts';
 
-import building from '../building.jpg'
-import content from '../content.jpg'
-import inventory from '../inventory.jpg'
+import building1 from '../building.jpg'
+import content1 from '../content.jpg'
+import inventory1 from '../inventory.jpg'
 
 export default function MainHomePage(){
 
@@ -155,21 +155,21 @@ const { building, inventory, content } = calculateValues(sliderValue);
 <Grid item xs={12} md={4}>
 <h3>Building</h3>
   <Paper elevation={2} sx={{ padding: 2, display: 'flex', justifyContent: 'center' }}>
-    <img src={building} alt="" style={{ width: '100%', height: 'auto', maxWidth: '300px' }} />
+    <img src={building1} alt="" style={{ width: '100%', height: 'auto', maxWidth: '300px' }} />
   </Paper>
 </Grid>
 
 <Grid item xs={12} md={4}>
 <h3>Content</h3>
   <Paper elevation={2} sx={{ padding: 2, display: 'flex', justifyContent: 'center' }}>
-    <img src={content} alt="" style={{ width: '100%', height: 'auto', maxWidth: '300px' }} />
+    <img src={content1} alt="" style={{ width: '100%', height: 'auto', maxWidth: '300px' }} />
   </Paper>
 </Grid>
 
 <Grid item xs={12} md={4}>
 <h3>Inventory</h3>
   <Paper elevation={2} sx={{ padding: 2, display: 'flex', justifyContent: 'center' }}>
-    <img src={inventory} alt="" style={{ width: '100%', height: 'auto', maxWidth: '300px' }} />
+    <img src={inventory1} alt="" style={{ width: '100%', height: 'auto', maxWidth: '300px' }} />
   </Paper>
 </Grid>
 
