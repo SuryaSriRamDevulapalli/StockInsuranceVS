@@ -41,14 +41,14 @@ export default function Login(){
       };
 
       const location = useLocation();
-       const { userData } = location.state || {};
+       const { user } = location.state || {};
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             const Data = await login({ username, password });
             console.log(Data);
-            navigate('/main', { state: { userData } }); 
+            navigate('/main', { state: { user } }); 
         } catch (error) {
             console.error(error); 
             alert(error.message); 

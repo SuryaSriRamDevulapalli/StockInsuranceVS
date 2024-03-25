@@ -11,7 +11,7 @@ export default function Profile() {
     const navigate = useNavigate();
 
     const location = useLocation();
-    const { userData } = location.state || {};
+    const { user } = location.state || {};
 
     // useEffect(() => {
     //     if (!userData) {
@@ -22,7 +22,7 @@ export default function Profile() {
     //     }
     // }, [userData, navigate]);
 
-    if (!userData) {
+    if (!user) {
         return <div>Loading user details or redirecting...</div>;
     }
 
@@ -44,26 +44,26 @@ export default function Profile() {
         </Toolbar>
       </AppBar>
     </Box>
-            <h2 style={{marginTop:"100px"}}>Details for ID: {userData.id}</h2>
+            <h2 style={{marginTop:"100px"}}>Details for ID: {user.id}</h2>
             <Box display="flex" justifyContent="center" alignItems="center">
                 <TableContainer component={Paper} sx={{ maxWidth: 650, mt: 0 ,boxShadow: '0px 0px 10px rgba(0,0,0,1.5)'}}>
                     <Table aria-label="insurance details">
                         <TableBody>
                             <TableRow>
                                 <TableCell component="th" scope="row"><strong>Firstname:</strong></TableCell>
-                                <TableCell>{userData.firstname}</TableCell>
+                                <TableCell>{user.firstname}</TableCell>
                             </TableRow>
                             <TableRow>
                                 <TableCell component="th" scope="row"><strong>Lastname: </strong></TableCell>
-                                <TableCell>{userData.lastname}</TableCell>
+                                <TableCell>{user.lastname}</TableCell>
                             </TableRow>
                             <TableRow>
                                 <TableCell component="th" scope="row"><strong>Username:</strong></TableCell>
-                                <TableCell>{userData.username}</TableCell>
+                                <TableCell>{user.username}</TableCell>
                             </TableRow>
                             <TableRow>
                                 <TableCell component="th" scope="row"><strong>Password:</strong></TableCell>
-                                <TableCell>{userData.password}</TableCell>
+                                <TableCell>{user.password}</TableCell>
                             </TableRow>
                         </TableBody>
                     </Table>

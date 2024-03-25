@@ -115,6 +115,7 @@ export default function Insuarnce(){
             .then((response) => {
                 console.log(response.data);
                 navigation('/list');
+                
             })
             .catch(error => {
                 console.error('There was an error updating the insurance:', error);

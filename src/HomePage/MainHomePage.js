@@ -2,9 +2,9 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate,  } from 'react-router-dom';
 import { IconButton, Menu, MenuItem, Paper } from '@mui/material';
-import { useState } from 'react';
+import {  useState } from 'react';
 import PolicyIcon from '@mui/icons-material/Policy';
 import { AccountCircle } from '@mui/icons-material';
 import { Grid, Slider } from '@mui/material';
@@ -22,6 +22,7 @@ export default function MainHomePage(){
 
     const navigate = useNavigate();
 
+
     const handleLogin = ()=>{
         navigate('/')
 
@@ -38,11 +39,27 @@ export default function MainHomePage(){
       navigate('/list')
     }
         const location = useLocation();
-        const { userData } = location.state || {};
+        const { user } = location.state || {};
 
-    const handleProfile = () =>{
-      navigate('/profile',{ state: { userData } })
+    // const handleProfile = () =>{
+    //   navigate('/profile',{ state: { userData } })
+    // }
+
+    function handleProfile(){
+      if (user && user.id) {
+        navigate(`/profile/${user.id}`, { state: { user } });
+      } else {
+        console.error('User data is undefined or missing ID');
+        // Handle the error, e.g., navigate to login or show an error message
+      }
     }
+    
+
+    // function handleProfile(id){
+    //   navigate(`/profile`);
+    //   }  
+
+
 
     const [sliderValue, setSliderValue] = useState(5000);
     

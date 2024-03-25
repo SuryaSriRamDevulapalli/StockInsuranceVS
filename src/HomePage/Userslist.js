@@ -15,47 +15,47 @@ import Table from '@mui/material/Table';
 import TableContainer from '@mui/material/TableContainer';
 import Paper from '@mui/material/Paper';
 import PolicyIcon from '@mui/icons-material/Policy';
+import { userlist } from './LoginService';
 
 
 
-export default function InsuranceList(){
+export default function UsersList(){
 
-    const [insruaces,setInsurances] = useState([]);
+    const [users,setUsers] = useState([]);
 
     const navigation = useNavigate();
 
     useEffect(()=>{
-        listinsurances();
+        listusers();
     },[]);
     
     
-    function listinsurances(){
-        inurancelist().then((response)=>{
-            setInsurances(response.data)
+    function listusers(){
+        userlist().then((response)=>{
+            setUsers(response.data)
         })
     }
-    const handleGetQuote = (insurance) => {
-        navigation('/insurances', { state: { insurance } });
+    const handleGetQuote = (user) => {
+        navigation('/login', { state: { user } });
       };
       
       const handleBack = ()=>{
         navigation('/main')
-
     };  
 
-    function addnewinsurance(){
-        navigation('/create')
-        }
+    // function addnewinsurance(){
+    //     navigation('/create')
+    //     }
 
-        function updateinsrance(id){
-            navigation(`/edit/${id}`);
-            }  
+    //     function updateinsrance(id){
+    //         navigation(`/edit/${id}`);
+    //         }  
          
-            function deleteInsurance(id) { 
-                deleteinsuracne(id).then((response) => {
-                    listinsurances();
-                })
-            }    
+    //         function deleteInsurance(id) { 
+    //             deleteinsuracne(id).then((response) => {
+    //                 listinsurances();
+    //             })
+            // }    
 
     return(
         <div>
@@ -64,7 +64,7 @@ export default function InsuranceList(){
         <Toolbar>
         <PolicyIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          Insurances List
+          Users List
           </Typography>
           <Button color="inherit" onClick={handleBack}>Back</Button>
           
@@ -76,40 +76,44 @@ export default function InsuranceList(){
         
             <thead>
                 <tr>
-                    <th>Insuarnce ID: </th>
-                    <th>Type Of Stock: </th>
-                    <th>Stock Value: </th>
-                    <th>Recover Percentage: </th>
-                    <th>Damages Covered: </th>
-                    <th>Premium Charges: </th>
+                    <th>User ID: </th>
+                    <th>FirstName: </th>
+                    <th>Lastname: </th>
+                    <th>Username </th>
+                    <th>Password: </th>
+                    {/* <th>Premium Charges: </th>
                     <th>Cover Premiums: </th>
                     <th>Cover Premium Values: </th>
                     <th>Monthly Premium: </th>
-                    <th>Update & Delete: </th>
+                    <th>Update & Delete: </th> */}
                 </tr>
             </thead>
             <tbody>
-                {insruaces.map((insruace)=>{
-                   return <tr key={insruace.id}>
-                        <td>{insruace.id}</td>
-                        <td>{insruace.typeofstock}</td>
-                        <td>{insruace.stockvalue}</td>
-                        <td>{insruace.riskfactor *100}%</td>
-                        <td>{insruace.damagescovered}</td>
-                        <td>{insruace.premiumcharges}</td>
+                {users.map((user)=>{
+                   return <tr key={user.id}>
+                        <td>{user.id}</td>
+                        <td>{user.firstname}</td>
+                        <td>{user.lastname}</td>
+                        <td>{user.username}</td>
+                        <td>{user.password}</td>
+                        {/* <td>{insruace.premiumcharges}</td>
                         <td>{insruace.coverpremiumcount}</td>
-                        <td>{insruace.coverpremiumvlaue}</td>
-                        <td><Button variant="contained" color="success" sx={{fontSize:"small"}} onClick={()=>handleGetQuote(insruace)} > Get Quote</Button></td>
+                        <td>{insruace.coverpremiumvlaue}</td> */}
+                        {/* <td><Button variant="contained" color="success" sx={{fontSize:"small"}} onClick={()=>handleGetQuote(insruace)} > Get Quote</Button></td>
                         <td>
                         <EditIcon sx={{ color: "blue",marginRight:2 }} onClick={()=>updateinsrance(insruace.id)}/>
                         <DeleteIcon sx={{ color: "red" }}  onClick={() => deleteInsurance(insruace.id)}/>
+                        </td> */}
+                        <td>
+                        <Button variant="contained" onClick={()=>handleGetQuote(user)} >Login</Button>
                         </td>
                     </tr>
                 })}
             </tbody>
         </Table>
         <br></br>
-        <Fab color="primary" aria-label="add" onClick={()=> addnewinsurance()} ><AddIcon /></Fab>
+        {/* <Fab color="primary" aria-label="add" onClick={()=> addnewinsurance()} ><AddIcon /></Fab> */}
+        
         </div>
 
     );
