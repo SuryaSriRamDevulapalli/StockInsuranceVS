@@ -15,18 +15,12 @@ export default function Profile() {
 
     // useEffect(() => {
     //     if (!userData) {
-    //         const storedUserData = localStorage.getItem('userData');
     //         if (storedUserData) {
-    //             setUserData(JSON.parse(storedUserData));
     //         } else {
     //             navigate('/login');
     //         }
     //     }
     // }, [userData, navigate]);
-
-
-    
-    
 
     if (!userData) {
         return <div>Loading user details or redirecting...</div>;

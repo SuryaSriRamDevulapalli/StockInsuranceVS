@@ -1,11 +1,12 @@
 import React, {  useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import {  getuser, register } from './LoginService';
-import { Box, Button, Container, TextField } from '@mui/material';
+import { Avatar, Box, Button, Container, TextField } from '@mui/material';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import AppBar from '@mui/material/AppBar';
 import PolicyIcon from '@mui/icons-material/Policy';
+import HowToRegIcon from '@mui/icons-material/HowToReg';
 
 
 export default function Registration() {
@@ -86,8 +87,12 @@ export default function Registration() {
       </AppBar>
     </Box>
     <Container maxWidth="sm">
+    
     <Box sx={{alignItems: 'center',justifyContent: 'center',mt:10,border: '4px solid', borderColor: "white",borderRadius: '16px', p: 4, 
     boxShadow: '0px 0px 10px rgba(0,0,0,1.5)', maxWidth: 400}}>
+      <Avatar sx={{ m: 1, bgcolor: 'secondary.main',ml:21}}>
+            <HowToRegIcon/>
+            </Avatar>
     <form onSubmit={handleSubmit}>
            <h3>Please provide your details:</h3>
             <TextField sx={{mb:2}} id="firstname" label="First Name" variant="outlined" name="firstname" placeholder="Stock Value" onChange={handleChange}  value={userData.firstname} required/>
