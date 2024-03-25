@@ -37,7 +37,7 @@ export default function MainHomePage(){
     const handleInsurance = () =>{
       navigate('/list')
     }
-    const location = useLocation();
+        const location = useLocation();
         const { userData } = location.state || {};
 
     const handleProfile = () =>{
