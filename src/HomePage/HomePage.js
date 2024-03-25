@@ -13,10 +13,12 @@ import { PieChart, Pie, Cell } from 'recharts';
 
 
 
+
 export default function HomePage(){
 
     const navigate = useNavigate();
     const [sliderValue, setSliderValue] = useState(5000);
+    
     const handleLogin = ()=>{
         navigate('/login')
 
@@ -49,9 +51,27 @@ const { building, inventory, content } = calculateValues(sliderValue);
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
+          
         <PolicyIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+        <Typography
+            variant="h6"
+            noWrap
+            component="a"
+            href="#app-bar-with-responsive-menu"
+            sx={{
+              mr: 2,
+              display: { xs: 'none', md: 'flex' },
+              fontFamily: 'monospace',
+              fontWeight: 700,
+              letterSpacing: '.3rem',
+              color: 'inherit',
+              textDecoration: 'none',
+            }}
+          >
+            STOCK INSURANCE
+          </Typography>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          Welcome to Stock Insurance
+          
           </Typography>
           <Button color="inherit" onClick={handleLogin}>Login</Button>
           
@@ -60,6 +80,7 @@ const { building, inventory, content } = calculateValues(sliderValue);
     </Box>
     <Grid container spacing={2} justifyContent="center" alignItems="center" direction="row" sx={{ mt: 4 }}>
                 <Grid item  sx={{ boxShadow: 3, border: "none",borderRadius: 2,p: 2,mr: 2}}>
+                
                     <Typography><strong>Stock value:</strong>{sliderValue}<CurrencyRupeeIcon sx={{fontSize:"small"}}/></Typography>
                     <Slider 
                         value={sliderValue}
@@ -75,14 +96,15 @@ const { building, inventory, content } = calculateValues(sliderValue);
                     <Typography><strong>Damages Covered for Content:</strong> {content}<CurrencyRupeeIcon sx={{fontSize:"small"}}/></Typography>
                 </Grid>
                 <Grid item  sx={{ boxShadow: 3, border: "none",borderRadius: 2,p: 2,mr:2}}>
+                <h3>Risk Factor</h3>
             <BarChart
-    width={500}
-    height={300}
-    data={data}
-    margin={{
-      top: 20, right: 30, left: 20, bottom: 5,
-    }}
-  >
+                  width={500}
+                  height={300}
+                  data={data}
+                  margin={{
+                    top: 20, right: 30, left: 20, bottom: 5,
+                  }}
+                >
     <CartesianGrid strokeDasharray="3 3" />
     <XAxis dataKey="name" />
     <YAxis />
@@ -92,6 +114,7 @@ const { building, inventory, content } = calculateValues(sliderValue);
   </BarChart>
   </Grid>
 <Grid item  sx={{ boxShadow: 3,border: "none",borderRadius: 2,p: 2}}>
+<h3>Premium Charges</h3>
 <PieChart  width={400} height={400}>
     <Pie
       data={data1}
@@ -105,7 +128,7 @@ const { building, inventory, content } = calculateValues(sliderValue);
       label={({ name, value }) => ` ${value}`}
     >
       {data.map((entry, index) => (
-        <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+        <Cell key={`${index}`} fill={COLORS[index % COLORS.length]} />
       ))}
     </Pie>
     <Tooltip />
