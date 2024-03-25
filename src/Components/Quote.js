@@ -13,12 +13,15 @@ import NumbersIcon from '@mui/icons-material/Numbers';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import NavigationIcon from '@mui/icons-material/Navigation';
 import { useState } from 'react';
+import PolicyIcon from '@mui/icons-material/Policy';
+
 
 
 function Quote() {
 
     const location = useLocation();
     const { insurance, selectedPartner } = location.state || {};
+    
     const [open, setOpen] = useState(false);
   
     // const { id } = useParams();
@@ -31,6 +34,11 @@ function Quote() {
   const handleClickOpen = () => {
     setOpen(true);
   };
+
+  const handleLogout = () => {
+    navigate('/');
+  };
+  
 
   const handleClose = () => {
     setOpen(false);
@@ -58,17 +66,19 @@ function Quote() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
+        <PolicyIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Final Quote Estimation
           </Typography>
-          <Button color="inherit">Logout</Button>
+          <Button color="inherit" onClick={handleLogout}>Logout</Button>
           
         </Toolbar>
       </AppBar>
     </Box>
     <h2 style={{marginTop:"100px"}}>Insurance Quote for ID: {insurance.id}</h2>
     <Box display="flex" justifyContent="center" alignItems="center">
-      <TableContainer component={Paper} sx={{ maxWidth: 650, mt: 0 }}>
+      <TableContainer component={Paper} sx={{ maxWidth: 650, mt: 0 ,boxShadow: '0px 0px 10px rgba(0,0,0,1.5)'}}>
       <Table aria-label="insurance details">
         {insurance ? (
           <TableBody>

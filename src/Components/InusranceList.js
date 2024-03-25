@@ -14,6 +14,7 @@ import Box from '@mui/material/Box';
 import Table from '@mui/material/Table';
 import TableContainer from '@mui/material/TableContainer';
 import Paper from '@mui/material/Paper';
+import PolicyIcon from '@mui/icons-material/Policy';
 
 
 
@@ -60,6 +61,7 @@ export default function InsuranceList(){
                 <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
+        <PolicyIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           Insurances List
           </Typography>
