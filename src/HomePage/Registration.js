@@ -30,15 +30,15 @@ export default function Registration() {
   };
 
 
-  const { id } = useParams();
+//   const { id } = useParams();
 
-  useEffect(()=>{
-    if(id){
-        getuser(id).then((response)=>{
-            setUserData(response.data);
-        })
-    }
-},[id])
+//   useEffect(()=>{
+//     if(id){
+//         getuser(id).then((response)=>{
+//             setUserData(response.data);
+//         })
+//     }
+// },[id])
 
 
   
@@ -58,6 +58,23 @@ export default function Registration() {
       }
 
   };
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+
+  //     try {
+  //       await register(userData).then((response) => {
+  //         console.log(response.data); 
+  //           navigate(`/login`);
+  //          alert(`Account created successfully for ${response.data.firstname} ${response.data.lastname} with username: ${response.data.username}. and ID: ${response.data.id}`);        
+          
+  //         })
+       
+  //     } catch (error) {
+  //       alert('Failed to register');
+  //     }
+
+  // };
 
   return (
     <div>
