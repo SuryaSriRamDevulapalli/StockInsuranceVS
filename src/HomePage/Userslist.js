@@ -1,9 +1,4 @@
 import { useNavigate } from 'react-router-dom';
-import { deleteinsuracne, inurancelist } from '../Service/ServiceList';
-import DeleteIcon from '@mui/icons-material/Delete';
-import EditIcon from '@mui/icons-material/Edit';
-import Fab from '@mui/material/Fab';
-import AddIcon from '@mui/icons-material/Add';
 import { useState,useEffect } from "react";
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -36,7 +31,7 @@ export default function UsersList(){
         })
     }
     const handleGetQuote = (user) => {
-        navigation('/login', { state: { user } });
+        navigation(`/login`, { state: { user } });
       };
       
       const handleBack = ()=>{

@@ -8,9 +8,17 @@ export const userlist = () => {
 
 export const login = async (credentials) => {
     try {
-        const response = await axios.post(`${API_BASE_URL}/login`, credentials);
-        if (response.data === true) {
-            return response.data;
+        const response = await userlist();
+        const users = response.data;
+        const user = users.find(u => u.username === credentials.username && u.password === credentials.password);
+        const response1 = await axios.post(`${API_BASE_URL}/login`, credentials, {
+            headers: {
+                'Content-Type': 'application/json', 
+            },
+        });
+
+        if (user && response1.data === true) {
+            return response1.data;
         } else {
             throw new Error('Invalid credentials');
         }
